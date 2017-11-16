@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "CollectionViewController.h"
 #import "CustomCollectionViewCell.h"
+#import "ImagesCollectionHeaderView.h"
+#import "Section.h"
+#import "State.h"
+#import "GridLayout.h"
 
-@interface CollectionViewController ()
+@interface CollectionViewController () <UICollectionViewDataSource>
 
-@property (nonatomic) NSArray<UIImage*>* images;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) NSArray *arrayOfStates;
+@property (strong, nonatomic) State *selectedState;
+@property (nonatomic, assign) int stateIndex;
 
 @end
 
@@ -20,26 +27,53 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
-
-- (NSArray<UIImage *> *)images {
-    if (_images == nil) {
-        _images = @[[UIImage imageNamed:@"cat-one"],[UIImage imageNamed:@"cat-two"],[UIImage imageNamed:@"cat-three"],[UIImage imageNamed:@"dog-one"],[UIImage imageNamed:@"dog-two"],[UIImage imageNamed:@"horse-one"],[UIImage imageNamed:@"horse-two"],[UIImage imageNamed:@"turtle-one"],[UIImage imageNamed:@"otter-one"],[UIImage imageNamed:@"otter-two"]];
-    }
-    return _images;
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //    [self.collectionView layoutCells];
+    GridLayout *layout = [[GridLayout alloc] init];
+    layout.itemSize = CGSizeMake(100, 100);
+
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    Section *landAnimalsSection = [[Section alloc] initWithHeaderTitle:@"Land Animals"
+                                                                 array:
+                                   @[[UIImage imageNamed:@"cat-one"],
+                                     [UIImage imageNamed:@"cat-two"],
+                                     [UIImage imageNamed:@"cat-three"],
+                                     [UIImage imageNamed:@"dog-one"],
+                                     [UIImage imageNamed:@"dog-two"],
+                                     [UIImage imageNamed:@"horse-one"],
+                                     [UIImage imageNamed:@"horse-two"]
+                                     ]];
+    Section *waterAnimalsSection = [[Section alloc] initWithHeaderTitle:@"Water Animals"
+                                                                  array:
+                                    @[[UIImage imageNamed:@"turtle-one"],
+                                      [UIImage imageNamed:@"otter-one"],
+                                      [UIImage imageNamed:@"otter-two"]
+                                      ]];
+    Section *locationOneSection = [[Section alloc] initWithHeaderTitle:@"Location One"
+                                                                 array:
+                                   @[[UIImage imageNamed:@"turtle-one"],
+                                     [UIImage imageNamed:@"horse-one"],
+                                     [UIImage imageNamed:@"otter-two"],
+                                     [UIImage imageNamed:@"cat-three"],
+                                     [UIImage imageNamed:@"dog-two"]
+                                     ]];
+    Section *locationTwoSection = [[Section alloc] initWithHeaderTitle:@"Location Two"
+                                                                 array:
+                                   @[[UIImage imageNamed:@"horse-two"],
+                                     [UIImage imageNamed:@"cat-one"],
+                                     [UIImage imageNamed:@"otter-one"],
+                                     [UIImage imageNamed:@"cat-two"],
+                                     [UIImage imageNamed:@"dog-one"]
+                                     ]];
     
-    // Register cell classes
-    //    [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    State *categoryState = [[State alloc] initWithArrayOfSections:@[landAnimalsSection,waterAnimalsSection]];
+    State *locationState = [[State alloc] initWithArrayOfSections:@[locationOneSection,locationTwoSection]];
+    
+    self.arrayOfStates = @[categoryState,locationState];
+    self.stateIndex = 0;
+    self.selectedState = self.arrayOfStates[self.stateIndex];
+    
 }
 
 /*
@@ -52,24 +86,42 @@ static NSString * const reuseIdentifier = @"Cell";
  }
  */
 
+- (IBAction)buttonSelected:(UISegmentedControl *)sender {
+    self.stateIndex ++;
+    self.selectedState = self.arrayOfStates[self.stateIndex%2];
+    
+    [self.collectionView reloadData];
+    }
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.selectedState.arrayOfSections.count;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.images.count;
+    return self.selectedState.arrayOfSections[section].array.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.imageView.image = self.images[indexPath.item];
+    cell.imageView.image = [self.selectedState.arrayOfSections[indexPath.section].array objectAtIndex:indexPath.item];
     
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableHeaderView = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        ImagesCollectionHeaderView *imagesHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        
+        imagesHeaderView.headerLabel.text = self.selectedState.arrayOfSections[indexPath.section].headerTitle;
+
+        reusableHeaderView = imagesHeaderView;
+    }
+    return reusableHeaderView;
 }
 
 #pragma mark <UICollectionViewDelegate>

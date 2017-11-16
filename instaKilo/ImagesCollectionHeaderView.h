@@ -1,5 +1,5 @@
 //
-//  CustomCollectionViewCell.h
+//  ImagesCollectionHeaderView.h
 //  instaKilo
 //
 //  Created by Daniel Grosman on 2017-11-15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomCollectionViewCell : UICollectionViewCell
+@interface ImagesCollectionHeaderView : UICollectionReusableView
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 
 @end

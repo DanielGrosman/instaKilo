@@ -14,6 +14,11 @@
 		C0D923431FBC89BA001B5DF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D923421FBC89BA001B5DF5 /* main.m */; };
 		C0D9234B1FBC8B18001B5DF5 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D9234A1FBC8B18001B5DF5 /* CollectionViewController.m */; };
 		C0D9234E1FBC8DE1001B5DF5 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D9234D1FBC8DE1001B5DF5 /* CustomCollectionViewCell.m */; };
+		C0D923511FBCB853001B5DF5 /* ImagesCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D923501FBCB853001B5DF5 /* ImagesCollectionHeaderView.m */; };
+		C0D923541FBCE816001B5DF5 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D923531FBCE816001B5DF5 /* Section.m */; };
+		C0D923571FBCF0F7001B5DF5 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D923561FBCF0F7001B5DF5 /* State.m */; };
+		C0D9235D1FBD073B001B5DF5 /* FloralView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D9235C1FBD073B001B5DF5 /* FloralView.m */; };
+		C0D923601FBD0822001B5DF5 /* GridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D9235F1FBD0822001B5DF5 /* GridLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,16 @@
 		C0D9234A1FBC8B18001B5DF5 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		C0D9234C1FBC8DE1001B5DF5 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		C0D9234D1FBC8DE1001B5DF5 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		C0D9234F1FBCB853001B5DF5 /* ImagesCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagesCollectionHeaderView.h; sourceTree = "<group>"; };
+		C0D923501FBCB853001B5DF5 /* ImagesCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagesCollectionHeaderView.m; sourceTree = "<group>"; };
+		C0D923521FBCE816001B5DF5 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		C0D923531FBCE816001B5DF5 /* Section.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		C0D923551FBCF0F7001B5DF5 /* State.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		C0D923561FBCF0F7001B5DF5 /* State.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		C0D9235B1FBD073B001B5DF5 /* FloralView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloralView.h; sourceTree = "<group>"; };
+		C0D9235C1FBD073B001B5DF5 /* FloralView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloralView.m; sourceTree = "<group>"; };
+		C0D9235E1FBD0822001B5DF5 /* GridLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridLayout.h; sourceTree = "<group>"; };
+		C0D9235F1FBD0822001B5DF5 /* GridLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +83,16 @@
 				C0D9234C1FBC8DE1001B5DF5 /* CustomCollectionViewCell.h */,
 				C0D9234D1FBC8DE1001B5DF5 /* CustomCollectionViewCell.m */,
 				C0D923391FBC89B9001B5DF5 /* Main.storyboard */,
+				C0D9235B1FBD073B001B5DF5 /* FloralView.h */,
+				C0D9235C1FBD073B001B5DF5 /* FloralView.m */,
+				C0D9235E1FBD0822001B5DF5 /* GridLayout.h */,
+				C0D9235F1FBD0822001B5DF5 /* GridLayout.m */,
+				C0D923551FBCF0F7001B5DF5 /* State.h */,
+				C0D923561FBCF0F7001B5DF5 /* State.m */,
+				C0D923521FBCE816001B5DF5 /* Section.h */,
+				C0D923531FBCE816001B5DF5 /* Section.m */,
+				C0D9234F1FBCB853001B5DF5 /* ImagesCollectionHeaderView.h */,
+				C0D923501FBCB853001B5DF5 /* ImagesCollectionHeaderView.m */,
 				C0D9233C1FBC89B9001B5DF5 /* Assets.xcassets */,
 				C0D9233E1FBC89B9001B5DF5 /* LaunchScreen.storyboard */,
 				C0D923411FBC89BA001B5DF5 /* Info.plist */,
@@ -147,10 +172,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D923601FBD0822001B5DF5 /* GridLayout.m in Sources */,
 				C0D923431FBC89BA001B5DF5 /* main.m in Sources */,
 				C0D923351FBC89B9001B5DF5 /* AppDelegate.m in Sources */,
+				C0D9235D1FBD073B001B5DF5 /* FloralView.m in Sources */,
 				C0D9234B1FBC8B18001B5DF5 /* CollectionViewController.m in Sources */,
+				C0D923511FBCB853001B5DF5 /* ImagesCollectionHeaderView.m in Sources */,
+				C0D923571FBCF0F7001B5DF5 /* State.m in Sources */,
 				C0D9234E1FBC8DE1001B5DF5 /* CustomCollectionViewCell.m in Sources */,
+				C0D923541FBCE816001B5DF5 /* Section.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

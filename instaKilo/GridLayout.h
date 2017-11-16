@@ -1,5 +1,5 @@
 //
-//  CustomCollectionViewCell.h
+//  GridLayout.h
 //  instaKilo
 //
 //  Created by Daniel Grosman on 2017-11-15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomCollectionViewCell : UICollectionViewCell
-
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@interface GridLayout : UICollectionViewFlowLayout
 
 @end
